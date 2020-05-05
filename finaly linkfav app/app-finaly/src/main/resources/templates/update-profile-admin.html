@@ -1,0 +1,12 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="form-update" >
+
+    <form action=/links/update/confirm/profiles method="post" >
+        <input type="hidden" name="id" th:value="${profile.getId()}">
+        <input type="text" name="name" placeholder="name" th:value="${${profile.getName()}}"/>
+        <input type="text" name="lastname" placeholder="lastname" th:value="${${profile.getLastName()}}"/><br>
+        <input type="text" name="email" placeholder="email" th:value="${profile.getEmail()}"/>
+        <input type="text" name="login" placeholder="login" th:value="${profile.getLogin()}"/>
+        <input type="text" name="password" placeholder="password" th:value="${profile.getPassword()}"/>
+        <button type="submit">update this Link</button>
+    </form>
+</div>

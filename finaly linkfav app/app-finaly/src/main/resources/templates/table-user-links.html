@@ -1,0 +1,30 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="table">
+    <table class="table table-bordered">
+        <h3>Your Links</h3>
+        <tr>
+            <th>User name</th>
+            <th>Link</th>
+            <th>Describe</th>
+        </tr>
+
+        <tr th:each="link : ${links}">
+            <td th:text="${link.getUsername()}"></td>
+            <td th:text="${link.getLink()}"></td>
+            <td th:text="${link.getDescribe()}"></td>
+            <td>
+                <form action="/links/delete/user">
+                    <input type="hidden" name="id" th:value="${link.getId()}">
+                    <button class="btn btn-sm btn-danger" type="submit">delete</button>
+                </form>
+            </td>
+            <td>
+                <form action="/links/update/user">
+                    <input type="hidden" name="id" th:value="${link.getId()}">
+                    <button class="btn btn-sm btn-primary" type="submit">update</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+</div>
+

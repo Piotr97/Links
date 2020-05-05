@@ -1,0 +1,30 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="table">
+    <center><h3>Application Profiles</h3></center>
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Last name</th>
+            <th>E-mail</th>
+            <th>Login</th>
+            <th>Password</th>
+        </tr>
+
+        <tr th:each="profile : ${profiles}">
+            <td th:text="${profile.getName()}"></td>
+            <td th:text="${profile.getLastName()}"></td>
+            <td th:text="${profile.getEmail()}"></td>
+            <td th:text="${profile.getLogin()}"></td>
+            <td th:text="${profile.getPassword()}"></td>
+            <td>
+                <form action="/links/delete/profiles">
+                    <input type="hidden" name="id" th:value="${profile.getId()}">
+                    <button class="btn btn-sm btn-danger" type="submit">delete profile</button>
+                </form>
+            </td>
+            <td>
+            <form action="/register/admin">
+                <button class="btn btn-sm btn-success" type="submit">add new profile</button>
+            </form></td>
+        </tr>
+    </table>
+</div>
